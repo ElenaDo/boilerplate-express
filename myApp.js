@@ -1,7 +1,8 @@
 
 var express = require('express');
 var app = express();
-console.log('Hello World');
+// console.log('Hello World');
+
 
 // --> 7)  Mount the Logger middleware here
 
@@ -13,10 +14,10 @@ console.log('Hello World');
 
 
 /** 2) A first working Express Server */
-
+//app.get('/', (req, res)=> res.send('Hello Express'));
 
 /** 3) Serve an HTML file */
-
+app.get('/', (req, res) => res.sendFile(__dirname+'/views/index.html'));
 
 /** 4) Serve static assets  */
 
@@ -51,7 +52,8 @@ console.log('Hello World');
 
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
-/** app.listen(process.env.PORT || 3000 ); */
+const { PORT = 3000 } = process.env;
+app.listen(PORT, () => console.log(`Listening on ${PORT}`)); 
 
 //---------- DO NOT EDIT BELOW THIS LINE --------------------
 
